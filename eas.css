@@ -1,0 +1,64 @@
+html{
+    box-sizing:border-box;
+}
+
+.game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 110px;
+    background-color: rgb(72, 88, 131);
+}
+
+
+.board{
+    display:flex;
+    align-items: center;
+    margin-top:0px;
+    max-width: 1500px;
+    outline: 0px solid red;
+    border-radius: 5px;
+    background-color: rgb(72, 88, 131);
+
+}
+
+.opts{
+    max-width:300px;
+    display: flex;
+    flex-direction: column;
+    Max-height: 600px;
+    justify-content: center;
+    outline: 0px solid blue;
+    background-color: rgb(9, 9, 36);
+    margin-right: 30px;
+    border-radius: 5px;
+}
+
+.opts>*{
+    max-width:100px;
+    font-size: medium;
+    margin: 7px 20px 20px 20px;
+}
+.pd{
+    text-align: center;
+}
+.pd .title{
+    font-size: 50px;
+    color: rgb(202, 186, 165);
+}
+
+.pad{
+    display: flex;
+    flex-wrap: wrap;
+    height:600px;
+    width: 600px;
+    outline: 0px solid blue;
+}
+
+.normal{background-color: grey;}
+.c0{background-color: rgb(0,0,0);}
+.c1{background-color: rgb(10,10,10);}
+.c2{background-color: rgb(20,20,20);}
+.c3{background-color: rgb(30,30,30);}
+.c4{background-color: rgb(40,40,40);}
+.c5{background-color: rgb(50,50,50);}

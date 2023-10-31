@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded",function(){
     
     const brdpad=document.querySelector(".pad");
     const btns=document.querySelector(".opts");
-    let r=0,shde=false;
+    let r=0,shde=false,ersre=false,down=false;
 
     const bnrml=document.getElementById("nrml");
     bnrml.style.backgroundColor="green";
@@ -10,11 +10,13 @@ document.addEventListener("DOMContentLoaded",function(){
         chclr();
         bnrml.style.backgroundColor='green';
         shde=false;
+        ersre=false;
         
     })
 
     const bshd=document.getElementById("shd");
     bshd.addEventListener('click',(e)=>{
+        ersre=false;
         shde=true;   
         chclr();
         e.target.style.backgroundColor='green';
@@ -24,28 +26,38 @@ document.addEventListener("DOMContentLoaded",function(){
     const brnbw=document.getElementById("rnbw");
 
     const bersr=document.getElementById("ersr");
+    bersr.addEventListener('click',(e)=>{
+        ersre=true;shde=false;
+        chclr();
+        e.target.style.backgroundColor='green';
+    })
 
     const bclr=document.getElementById("clr");
-    
     bclr.addEventListener('click',del);
 
     
 
-    let grdsz=36;
+    let grdsz=16;
     
     for (let i=0;i<grdsz*grdsz;i++){
         const bt=document.createElement("button");
-        bt.addEventListener('mouseover',draw);
-        
+        bt.addEventListener('mousedown',()=>{down=true});
+        bt.addEventListener('mouseup',()=>{down=false});
+        bt.addEventListener('mouseover',draw)
         setbtn(grdsz,bt);
         brdpad.appendChild(bt);
     }
 
     function draw(t){
+        if (down){
         if (shde) {
             shdcount(t);
         }
+        else if (ersre){
+            t.target.className='normal';
+        }
         else t.target.className=`c0`;
+        }
     }
 
     function setbtn(a,bt){
